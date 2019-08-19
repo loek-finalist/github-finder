@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
-import Navbar from './components/layout/Navbar';
-import UserItem from './components/users/UserItem';
+import React, { Component } from "react";
+import Navbar from "./components/layout/Navbar";
+import UserItem from "./components/users/UserItem";
+import Users from "./components/users/Users";
 
-import './App.css';
+
+import "./App.css";
 
 // function App() {
 //   return (
@@ -18,7 +20,7 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar />
-        <UserItem />
+        <Users />
       </div>
     );
   }
