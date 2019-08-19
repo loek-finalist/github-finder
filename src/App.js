@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Navbar from './components/layout/Navbar';
 
 import './App.css';
 
@@ -12,14 +13,10 @@ import './App.css';
 
 class App extends Component {
   render() {
-
-    let name = `Loek`;
-    
+   
     return (
       <div className="App">
-        <h1>Hello from react!</h1>
-        <h2>Your name: {name}</h2>
-        <a href="https://loekvanvark.com/spacex-api/" target="_blank" label="loekvanvark {spaceX}">loek{`{spaceX}`}</a>
+        <Navbar />
       </div>
     );
   }
