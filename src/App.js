@@ -4,12 +4,21 @@ import Users from "./components/users/Users";
 import axios from "axios";
 
 import "./App.css";
+import { isFlowBaseAnnotation } from "@babel/types";
 
 class App extends Component {
 
+  state = {
+    users: [],
+    loading: false
+  };
+
   async componentDidMount() {
+    this.setState({ loading: true});
     const response = await axios.get("https://api.github.com/users");
     console.log(response.data);
+
+    this.setState({ users: response.data, loading: false});
   }
 
   render() {
@@ -18,7 +27,7 @@ class App extends Component {
       <div className="App">
         <Navbar />
         <div className="container">
-          <Users />
+          <Users loading={this.state.loading} users={this.state.users} />
         </div>
       </div>
     );
