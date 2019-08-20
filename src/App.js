@@ -4,7 +4,6 @@ import Users from "./components/users/Users";
 import axios from "axios";
 
 import "./App.css";
-import { isFlowBaseAnnotation } from "@babel/types";
 
 class App extends Component {
 
@@ -14,11 +13,12 @@ class App extends Component {
   };
 
   async componentDidMount() {
-    this.setState({ loading: true});
-    const response = await axios.get("https://api.github.com/users");
-    console.log(response.data);
+    this.setState({ loading: true });
+    const response = await axios.get(`https://api.github.com/users?client_id=$
+      { process.env.REACT_APP_GITHUB_CLIENT_ID } & client_secret=$
+      { process.env.REACT_APP_GITHUB_CLIENT_SECRET }`);
 
-    this.setState({ users: response.data, loading: false});
+    this.setState({ users: response.data, loading: false });
   }
 
   render() {
