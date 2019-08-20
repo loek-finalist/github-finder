@@ -1,19 +1,17 @@
 import React, { Component } from "react";
 import Navbar from "./components/layout/Navbar";
 import Users from "./components/users/Users";
-
+import axios from "axios";
 
 import "./App.css";
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <h1>Hello from react</h1>       
-//     </div>
-//   );
-// }
-
 class App extends Component {
+
+  async componentDidMount() {
+    const response = await axios.get("https://api.github.com/users");
+    console.log(response.data);
+  }
+
   render() {
 
     return (
