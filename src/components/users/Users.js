@@ -23,7 +23,12 @@ class Users extends Component {
                 avatar_url: "https://avatars2.githubusercontent.com/u/45713478?v=4",
                 html_url: "https://github.com/loekvanvarkNL"
             },
-
+                     {
+                id: "4",
+                login: "loek-finalist",
+                         avatar_url: "https://avatars2.githubusercontent.com/u/51694436?s=460&v=4",
+                html_url: "https://github.com/loek-finalist"
+            }
         ]
     };
 
