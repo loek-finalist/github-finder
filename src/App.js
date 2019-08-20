@@ -24,15 +24,16 @@ class App extends Component {
 
   // Search Github Users
   searchUsers = async text => {
-    this.setState({ loading: true});
-    console.log(text);
-    const response = await axios.get(`https://api.github.com/users/search?q=${text}&client_id=${
+    this.setState({ loading: true });
+
+    const response = await axios.get(
+      `https://api.github.com/search/users?q=${text}&client_id=${
       process.env.REACT_APP_GITHUB_CLIENT_ID
-    }&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
+      }&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
 
-    this.setState({ users: response.data.item, loading: false });
+    this.setState({ users: response.data.items, loading: false });
 
-  }
+  };
 
   render() {
 
@@ -45,7 +46,7 @@ class App extends Component {
         </div>
       </div>
     );
-  }
+  };
 }
 
 export default App;
