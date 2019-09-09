@@ -40,6 +40,8 @@ class App extends Component {
 
   render() {
 
+    const { loading, users } = this.state;
+
     return (
       <div className="App">
         <Navbar />

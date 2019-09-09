@@ -25,6 +25,9 @@ class Search extends Component {
     };
 
     render() {
+
+    const { showClear, clearUsers } = this.props;
+
         return (
             <div>
                 <form onSubmit={this.onSubmit.bind(this)} className="form">
