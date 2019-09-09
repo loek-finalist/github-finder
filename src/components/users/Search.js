@@ -10,7 +10,7 @@ class Search extends Component {
 
     static propTypes = {
         searchUsers: PropTypes.func.isRequired,
-        // clearUsers: PropTypes.func.isRequired,
+        clearUsers: PropTypes.func.isRequired
         // showClear: PropTypes.bool.isRequired
     };
 
@@ -40,6 +40,7 @@ class Search extends Component {
                         value="Search" 
                         className="btn btn-dark btn-block" />
                 </form>
+                <button className="btn btn-light btn-block" onClick={this.props.clearUsers}>Clear</button>
             </div>
         )
     };
