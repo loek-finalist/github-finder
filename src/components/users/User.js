@@ -33,27 +33,34 @@ export class User extends Component {
         }
 
         return (
-            <div>
-                <div className="card text-center">
-                    <img
-                        src={avatar_url}
-                        alt=""
-                        className="round-img"
-                        style={{ width: "50px" }}
-                    />
-                    <h1>{login}</h1>
-                    <div>
-                        <h2>{location}</h2>
-                        <p>{bio}</p>
-                        <p>public repos: {public_repos}</p>
+            <div className="center">
+            <Fragment>
+                <Link to="/" className="btn btn-light">back to search</Link>
+                <div className="card grid-2">
+                    <div className="all-center">
+                        <img
+                            src={avatar_url}
+                            alt=""
+                            className="round-img"
+                            style={{ width: "50px" }}
+                        />
+                        <h1>{login}</h1>
+                        <div>
+                            <h2>{location}</h2>
+                            <p>public repos: {public_repos}</p>
+                        </div>
+
                     </div>
+                    <div>
+                        {bio && <Fragment>
+                            <h3>Bio</h3>
+                            <p>{bio}</p>
+                        </Fragment>}
+                    </div>
+
                 </div>
-
-                <Fragment>
-                    <Link to="/" className="btn btn-light">back to search</Link>
-                </Fragment>
+            </Fragment>
             </div>
-
         )
     }
 }
