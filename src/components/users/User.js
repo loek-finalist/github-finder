@@ -48,6 +48,7 @@ export class User extends Component {
                         <div>
                             <h2>{location}</h2>
                             <p>public repos: {public_repos}</p>
+                                <p><a href={html_url} target="on_blank">go to Github profile</a></p>
                         </div>
 
                     </div>
