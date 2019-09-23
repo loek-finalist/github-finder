@@ -14,10 +14,10 @@ export class User extends Component {
         getUser: PropTypes.func.isRequired
     };
 
-
     render() {
         const {
             name,
+            company,
             avatar_url,
             location,
             bio,
@@ -34,32 +34,37 @@ export class User extends Component {
 
         return (
             <div className="center">
-            <Fragment>
-                <Link to="/" className="btn btn-light">back to search</Link>
-                <div className="card grid-2">
-                    <div className="all-center">
-                        <img
-                            src={avatar_url}
-                            alt=""
-                            className="round-img"
-                            style={{ width: "50px" }}
-                        />
-                        <h1>{login}</h1>
-                        <div>
-                            <h2>{location}</h2>
-                            <p>public repos: {public_repos}</p>
+                <Fragment>
+                    <Link to="/" className="btn btn-light">Back to Search</Link>
+                    <div className="card grid-2">
+                        <div className="all-center">
+                            <img
+                                src={avatar_url}
+                                alt=""
+                                className="round-img"
+                                style={{ width: "50px" }}
+                            />
+                            <h1>{login}</h1>
+                            <div>
+                                <h2>{location}</h2>
+                                <p><a href={html_url} target="on_blank" className="btn btn-dark my-1">visit Github profile</a></p>
+                            </div>
                         </div>
-
+                        <div>
+                            {bio && <Fragment>
+                                <h3>Bio</h3>
+                                <p>{bio}</p>
+                                <h3>Name</h3>
+                                <p>{name}</p>
+                                <h3>Company</h3>
+                                <p>{company}</p>
+                            </Fragment>}
+                        </div>
                     </div>
-                    <div>
-                        {bio && <Fragment>
-                            <h3>Bio</h3>
-                            <p>{bio}</p>
-                        </Fragment>}
+                    <div className='card text-center'>
+                        <div className='badge badge-primary'>Public Repos: {public_repos}</div>
                     </div>
-
-                </div>
-            </Fragment>
+                </Fragment>
             </div>
         )
     }
