@@ -7,6 +7,9 @@ import Alert from "./components/layout/Alert";
 import About from "./components/pages/About";
 import User from "./components/users/User";
 
+import { Provider } from "react-redux";
+import store from "./store";
+
 import axios from "axios";
 
 import "./App.css";
@@ -62,36 +65,38 @@ class App extends Component {
     const { loading, users, user } = this.state;
 
     return (
-      <Router>
-        <div className="App">
-          <Navbar />
-          <div className="container">
-            <Alert alert={this.state.alert} />
-            <Switch>
-              <Route exact path="/" render={props => (
-                <Fragment>
-                  <Search
-                    searchUsers={this.searchUsers}
-                    clearUsers={this.clearUsers}
-                    showClear={this.state.users.length > 0 ? true : false}
-                    setAlert={this.setAlert}
-                  />
-                  <Users loading={this.state.loading} users={this.state.users} />
-                </Fragment>
-              )} />
-              <Route exact path="/about" component={About} />
-              <Route exact path="/user/:login" render={props => (
-                <User
-                  {...props}
-                  getUser={this.getUser} 
-                  user={user} 
-                  loading={loading} />
-              )} />
-            </Switch>
+      <Provider store={store}>
+        <Router>
+          <div className="App">
+            <Navbar />
+            <div className="container">
+              <Alert alert={this.state.alert} />
+              <Switch>
+                <Route exact path="/" render={props => (
+                  <Fragment>
+                    <Search
+                      searchUsers={this.searchUsers}
+                      clearUsers={this.clearUsers}
+                      showClear={this.state.users.length > 0 ? true : false}
+                      setAlert={this.setAlert}
+                    />
+                    <Users loading={this.state.loading} users={this.state.users} />
+                  </Fragment>
+                )} />
+                <Route exact path="/about" component={About} />
+                <Route exact path="/user/:login" render={props => (
+                  <User
+                    {...props}
+                    getUser={this.getUser}
+                    user={user}
+                    loading={loading} />
+                )} />
+              </Switch>
 
+            </div>
           </div>
-        </div>
-      </Router>
+        </Router>
+      </Provider>
     );
   };
 }
